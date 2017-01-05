@@ -7,15 +7,31 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MainTabBarController.h"
+#import "MainNavController.h"
+#import "IQKeyboardManager.h"
+#import "LoginController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    
+    //(Optional)Set Distance between keyboard & textField, Default is 10.
+    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:50];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+   // MainController * mainController =[[MainController alloc]init];
+   // MainNavController *mainNav=[[MainNavController alloc]initWithRootViewController:mainController];
+    
+    LoginController *mainTabController =[[LoginController alloc]init];
+    
+    [self.window setRootViewController:mainTabController];
+    
     return YES;
 }
 
