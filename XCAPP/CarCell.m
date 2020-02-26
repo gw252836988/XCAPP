@@ -7,7 +7,7 @@
 //
 
 #import "CarCell.h"
-
+// add some new 2
 @implementation CarCell
 
 - (void)awakeFromNib {
